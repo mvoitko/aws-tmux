@@ -8,6 +8,8 @@
 - Show the version of AWS CLI currently installed
 - Display the region currently configured (in the current aws cli profile)
 - Show the status of the selected CloudFormation template (WIP).
+- Display the current AWS profile name
+- Show the active SSO session name
 
 The prerequisites for this `tmux` status indicator to work is that you have the
 following:
@@ -22,6 +24,8 @@ There are three options currently available to be displayed in tmux:
 - AWS Region `#{aws_region}`
 - AWS CLI version `#{aws_version}`
 - CloudFormation stack status `#{aws_cfn_status}`
+- AWS Profile `#{aws_profile}`
+- SSO Session Name `#{aws_sso_session}`
 
 ## Installation
 

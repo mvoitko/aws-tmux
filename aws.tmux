@@ -9,12 +9,16 @@ aws_interpolations=(
 	"\#{aws_region}"
 	"\#{aws_version}"
 	"\#{aws_cfn_status}"
+	"\#{aws_profile}"
+	"\#{aws_sso_session}"
 )
 
 aws_commands=(
   "#($CURRENT_DIR/scripts/region.sh)"
   "#($CURRENT_DIR/scripts/version.sh)"
   "#($CURRENT_DIR/scripts/cfn_status.sh)"
+  "#($CURRENT_DIR/scripts/profile.sh)"
+  "#($CURRENT_DIR/scripts/sso_session.sh)"
 )
 
 do_interpolation() {
