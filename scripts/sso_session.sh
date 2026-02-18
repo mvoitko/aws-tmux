@@ -6,11 +6,12 @@ source "$CURRENT_DIR/helpers.sh"
 
 get_sso_session()
 {
-  SSO_SESSION="$(${AWS_TMUX_BINARY} configure get sso_session 2>/dev/null)"
-  if [[ $SSO_SESSION == "" ]]; then
-    printf "none"
+  local profile="${AWS_PROFILE:-${AWS_DEFAULT_PROFILE:-default}}"
+  local sso_session="$(${AWS_TMUX_BINARY} configure get sso_session --profile "$profile" 2>/dev/null)"
+  if [[ $sso_session == "" ]]; then
+    printf "%s" "none"
   else
-    printf "$SSO_SESSION"
+    printf "%s" "$sso_session"
   fi
 }
 get_sso_session
