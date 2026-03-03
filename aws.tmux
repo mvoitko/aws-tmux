@@ -34,7 +34,7 @@ do_interpolation() {
 set_tmux_options() {
 	local option="$1"
 	local value="$2"
-	tmux set-option -gp "$option" "$value"
+	tmux set-option -gq "$option" "$value"
 }
 
 update_tmux_option() {
