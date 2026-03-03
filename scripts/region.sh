@@ -6,10 +6,11 @@ source "$CURRENT_DIR/helpers.sh"
 
 get_region()
 {
-  AWS_REGION="$(${AWS_TMUX_BINARY} configure get region 2>/dev/null)"
+  local profile="${AWS_PROFILE:-${AWS_DEFAULT_PROFILE:-default}}"
+  AWS_REGION="$(${AWS_TMUX_BINARY} configure get region --profile "$profile" 2>/dev/null)"
   if [[ $AWS_REGION == "" ]]; then
     printf "not set"
-  else 
+  else
     printf "$AWS_REGION"
   fi
 }
